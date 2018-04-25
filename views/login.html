@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+	<title>登录页面</title>
+	<link rel='stylesheet' href='/stylesheets/style.css'/>
+	<script type="text/javascript" src="/javascripts/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="/javascripts/vue.js"></script>
+</head>
+<body>
+	<div class="wraper login_wrapper">
+		<div class="login_container">
+			<h1>用户登录</h1>
+			<div class="user_input user_name">
+				<input type="text" name="userName" id="userName" placeholder="请输入用户名" />
+				<span></span>
+			</div>
+			<div class="user_input user_passswprd">
+				<input type="password" name="password" id="userPassword" placeholder="请输入密码" />
+				<span></span>
+			</div>
+			<!-- <div class="user_forget">
+				<span href="#"><a href="/regist">注册</a></span>
+				<span href="#"><a>忘记密码</a></span>
+			</div> -->
+			<a class="user_login" onclick="login()" id="loginHref">登录</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function login(){
+			var userName = $('#userName').val(),
+			userPassword = $('#userPassword').val();
+			data = {
+				"userName" : userName,
+				"userPassword" : userPassword
+			};
+
+			$.ajax({
+				url: '/login',
+				type: 'post',
+				data: data,
+				success:function(data,status){
+					if(status == 'success'){
+						location.href='/index';
+					}
+				},　　
+				error:function(data,status,e){
+					if(status == "error"){
+						alert("用户名或账号密码错误！");
+					}
+				}
+			});
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<title>第一个页面</title>
+	<link rel='stylesheet' href='/stylesheets/style.css'/>
+	<script type="text/javascript" src="/javascripts/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="/javascripts/vue.js"></script>
+</head>
+<body>
+	<div class="wraper">
+		<div id="app" class="content_show-wrap">
+			<div class="tit-top_name">信息展示页面</div>
+			<div class="index_list-box">
+				<div class="wrap_ctn-box">
+					<ul class="lef_ctn">
+						<li class="active">电影</li>
+						<li>动画片</li>
+						<li>电视剧</li>
+						<li>综艺</li>
+					</ul>
+					<div class="right_ctn">
+						<div class="opac-tion_nav">
+							<a href="index/add">增加</a>
+						</div>
+						<dl>
+							<dd class="w_h-10">编号</dd>
+							<dd class="w_h-20">姓名</dd>
+							<dd class="w_h-10">类型</dd>
+							<dd class="w_h-10">年龄</dd>
+							<dd class="w_h-50">操作</dd>
+						</dl>
+						<div class="list_box">
+							<ul v-for="item in aaa">
+								<li class="w_h-10">{{item.id}}</li>
+								<li class="w_h-20">{{item.name}}</li>
+								<li class="w_h-10">{{item.type}}</li>
+								<li class="w_h-10">{{item.age}}</li>
+								<li class="w_h-50">
+									<a :href="'index/del/' + item.id" class="delete">删除</a> 
+									<a :href="'index/toUpdate/' + item.id" class="modify">修改</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	new Vue({
+		el: '#app',
+		data: {
+			aaa: <%- datas %>,
+		}
+	});
+
+
+
+	$(".lef_ctn li").click(function(){
+		var type = $(this).index();
+		var sqlDtata = <%- datas %>;
+		$(this).addClass('active').siblings().removeClass('active');
+		data = {
+			"type": type
+		};
+
+		$.ajax({
+			url: '/index',
+			type: 'post',
+			data: data,
+			success:function(data,status){
+				if(status == 'success'){
+					// location.href='/index';
+				}
+			},　　
+			error:function(data,status,e){
+				if(status == "error"){
+					alert("嘿嘿！");
+				}
+			}
+		});
+		console.log(sqlDtata);
+	});
+</script>
+</html>

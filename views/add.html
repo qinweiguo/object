@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<title>新增</title>
+	<link rel='stylesheet' href='/stylesheets/style.css'/>
+	<script type="text/javascript" src="/javascripts/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="/javascripts/vue.js"></script>
+</head>
+<body>
+	<div class="wraper">
+		<h1 class="tit-top_name">新增页面</h1>
+		<form class="form_container-wrap" action="/index/add" method="post">
+			<div class="box">
+				<label>姓名：
+					<input class="inp" type="text" name="name" />
+				</label>
+			</div>
+			<div class="box">
+				<label>类型：
+					<input class="inp" type="number" name="type" />
+				</label>
+			</div>
+			<div class="box">
+				<label>年龄：
+					<input class="inp" type="number" name="age" />
+				</label>
+			</div>
+			<div class="box">
+				<input class="sub_btn" type="submit" value="提交">
+			</div>
+		</form>
+	</div>
+</body>
+</html>

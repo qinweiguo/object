@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<title>新增</title>
+	<link rel='stylesheet' href='/stylesheets/style.css'/>
+	<script type="text/javascript" src="/javascripts/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="/javascripts/vue.js"></script>
+	<style type="text/css">
+	::-webkit-input-placeholder { /* WebKit browsers */  
+		color: #ccc;  
+	}  
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */  
+		color: #ccc;  
+	}  
+	::-moz-placeholder { /* Mozilla Firefox 19+ */  
+		color: #ccc;  
+	}  
+	:-ms-input-placeholder { /* Internet Explorer 10+ */  
+		color: #ccc;  
+	} 
+</style>
+</head>
+<body>
+	<div class="wraper">
+		<h1 class="tit-top_name">注册页面</h1>
+		<form class="form_container-wrap" action="/regist" method="post">
+			<div class="box">
+				<label>用户名：
+					<input class="inp" type="text" name="userN" placeholder="请输入你的用户名" />
+				</label>
+			</div>
+			<div class="box">
+				<label>密码：
+					<input class="inp" type="text" name="userP" placeholder="请输入你的密码" />
+				</label>
+			</div>
+			<div class="box">
+				<input class="sub_btn" type="submit" value="提交">
+			</div>
+		</form>
+	</div>
+</body>
+</html>
